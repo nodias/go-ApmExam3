@@ -35,7 +35,7 @@ func getUserInfoHandler(w http.ResponseWriter, req *http.Request) {
 
 	id := mux.Vars(req)["id"]
 
-	user, err := database.GetUserInfo(id)
+	user, err := database.GetUserInfo(req.Context(), id)
 	if err != nil {
 		log.Fatal(err)
 	}

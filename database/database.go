@@ -1,6 +1,7 @@
 package database
 
 import (
+	"context"
 	"database/sql"
 	"fmt"
 	"log"
@@ -24,37 +25,22 @@ type PostgreAccess struct {
 	*sql.DB
 }
 
-func GetUserInfo(id string) (*model.User, error) {
+func GetUserInfo(ctx context.Context, id string) (*model.User, error) {
 	db := NewOpenDB()
+	tx, err := db.BeginTx(ctx, nil)
+	if err != nil {
+		return nil, err
+	}
 	user := model.User{}
 	defer db.Close()
-	row := db.QueryRow("SELECT * FROM schema_user.user WHERE id = $1", id)
-	err := row.Scan(&user.Id, &user.Name)
+	row := tx.QueryRowContext(ctx, "SELECT * FROM schema_user.user WHERE id = $1", id)
+	err = row.Scan(&user.Id, &user.Name)
 	if err != nil {
 		log.Printf("database.PostgreAccess.Get - %s", err)
 		return nil, err
 	}
 	log.Printf("database.PostgreAccess.Get - id: %s, name: %s", user.Id, user.Name)
 	return &user, nil
-}
-
-func (p PostgreAccess) Get(id string) (*model.User, error) {
-	user := model.User{}
-	defer p.Close()
-	row := p.QueryRow("SELECT * FROM schema_user.user WHERE id = $1", id)
-	err := row.Scan(&user.Id, &user.Name)
-	if err != nil {
-		log.Printf("database.PostgreAccess.Get - %s", err)
-		return nil, err
-	}
-	log.Printf("database.PostgreAccess.Get - id: %s, name: %s", user.Id, user.Name)
-	return nil, nil
-}
-
-func NewPostgreAccess() DataAccess {
-	return &PostgreAccess{
-		NewOpenDB(),
-	}
 }
 
 func NewOpenDB() *sql.DB {
