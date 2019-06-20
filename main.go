@@ -1,33 +1,18 @@
 package main
 
 import (
-	"net/http"
-
-	"go.elastic.co/apm/module/apmgorilla"
-
-	"github.com/gorilla/mux"
-	common "github.com/nodias/go-ApmCommon"
+	"github.com/nodias/go-ApmCommon/middleware"
+	"github.com/nodias/go-ApmExam3/database"
+	"github.com/nodias/go-ApmExam3/router"
 	"github.com/urfave/negroni"
 )
 
+func init() {
+	database.NewOpenDB()
+}
+
 func main() {
-	router := mux.NewRouter()
-	router.HandleFunc("/users", GetUsers).Methods("GET")
-	router.HandleFunc("/user/{id}", GetUser)
-	router.Use(apmgorilla.Middleware())
-	n := negroni.New(negroni.HandlerFunc(common.LoggingMiddleware))
-	n.UseHandler(router)
+	n := negroni.New(negroni.HandlerFunc(middleware.LoggingMiddleware))
+	n.UseHandler(router.NewRouter())
 	n.Run(":7003")
-}
-
-func GetUsers(w http.ResponseWriter, req *http.Request) {
-	data := []byte("end of GetUsers")
-	w.Write(data)
-	return
-}
-
-func GetUser(w http.ResponseWriter, req *http.Request) {
-	data := []byte("end of GetUser")
-	w.Write(data)
-	return
 }
