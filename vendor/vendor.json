@@ -89,14 +89,20 @@
 		{
 			"checksumSHA1": "9W7BlTiKXZWbLadqzlmiA9nEj74=",
 			"path": "github.com/nodias/go-ApmCommon/middleware",
-			"revision": "200c18f8b2e409db5aa3c85e722cbc329740c0b7",
-			"revisionTime": "2019-06-20T08:48:00Z"
+			"revision": "8d1ebafe6c06b3f7f0c1b3500180b174e83d6904",
+			"revisionTime": "2019-06-21T04:54:12Z"
 		},
 		{
 			"checksumSHA1": "H2EEmw/ZjPnpQ3WF3GULCVXJVu0=",
 			"path": "github.com/nodias/go-ApmCommon/model",
-			"revision": "200c18f8b2e409db5aa3c85e722cbc329740c0b7",
-			"revisionTime": "2019-06-20T08:48:00Z"
+			"revision": "8d1ebafe6c06b3f7f0c1b3500180b174e83d6904",
+			"revisionTime": "2019-06-21T04:54:12Z"
+		},
+		{
+			"checksumSHA1": "kP8VPAcK5OgTM7sOKTVWt0w5PKI=",
+			"path": "github.com/nodias/go-ApmCommon/response",
+			"revision": "8d1ebafe6c06b3f7f0c1b3500180b174e83d6904",
+			"revisionTime": "2019-06-21T04:54:12Z"
 		},
 		{
 			"checksumSHA1": "CUU7ZZtxuc1mpbM8XKrSTNiy/yM=",

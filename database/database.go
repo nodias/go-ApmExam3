@@ -1,7 +1,6 @@
 package database
 
 import (
-	"context"
 	"database/sql"
 	"fmt"
 	"log"
@@ -19,28 +18,6 @@ const (
 
 type DataAccess interface {
 	Get(id string) (*model.User, error)
-}
-
-type PostgreAccess struct {
-	*sql.DB
-}
-
-func GetUserInfo(ctx context.Context, id string) (*model.User, error) {
-	db := NewOpenDB()
-	tx, err := db.BeginTx(ctx, nil)
-	if err != nil {
-		return nil, err
-	}
-	user := model.User{}
-	defer db.Close()
-	row := tx.QueryRowContext(ctx, "SELECT * FROM schema_user.user WHERE id = $1", id)
-	err = row.Scan(&user.Id, &user.Name)
-	if err != nil {
-		log.Printf("database.PostgreAccess.Get - %s", err)
-		return nil, err
-	}
-	log.Printf("database.PostgreAccess.Get - id: %s, name: %s", user.Id, user.Name)
-	return &user, nil
 }
 
 func NewOpenDB() *sql.DB {
