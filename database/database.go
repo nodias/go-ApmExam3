@@ -3,8 +3,8 @@ package database
 import (
 	"database/sql"
 	"fmt"
-	"log"
 
+	"github.com/nodias/go-ApmCommon/logger"
 	"github.com/nodias/go-ApmCommon/model"
 	"go.elastic.co/apm/module/apmsql"
 	_ "go.elastic.co/apm/module/apmsql/pq"
@@ -15,6 +15,8 @@ const (
 	DatabasePassword = "admin"
 	DatabaseName     = "postgres"
 )
+
+var log = logger.Log
 
 type DataAccess interface {
 	Get(id string) (*model.User, error)
@@ -34,6 +36,6 @@ func NewOpenDB() *sql.DB {
 	if err = db.Ping(); err != nil {
 		log.Fatal("DB unreachable : ", err)
 	}
-	log.Println("connected DB")
+	log.Debug("connected DB")
 	return db
 }

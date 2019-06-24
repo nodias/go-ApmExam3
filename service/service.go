@@ -3,22 +3,22 @@ package service
 import (
 	"context"
 	"log"
-	"strings"
-	"unicode"
 
 	"github.com/nodias/go-ApmExam3/database"
 
 	"github.com/nodias/go-ApmCommon/model"
+	"github.com/nodias/go-ApmCommon/response"
 	"go.elastic.co/apm"
 )
 
-func GetUserInfo(ctx context.Context, id string) (*model.User, error) {
+func GetUserInfo(ctx context.Context, id string) (*model.User, *response.ResponseError) {
 	span, ctx := apm.StartSpan(ctx, "GetUserInfo", "custom")
 	defer span.End()
+
 	db := database.NewOpenDB()
 	tx, err := db.BeginTx(ctx, nil)
 	if err != nil {
-		return nil, err
+		return nil, response.NewResponseError(err, 500)
 	}
 	user := model.User{}
 	defer db.Close()
@@ -26,17 +26,8 @@ func GetUserInfo(ctx context.Context, id string) (*model.User, error) {
 	err = row.Scan(&user.Id, &user.Name)
 	if err != nil {
 		log.Printf("database.PostgreAccess.Get - %s", err)
-		return nil, err
+		return nil, response.NewResponseError(err, 500)
 	}
 	log.Printf("database.PostgreAccess.Get - id: %s, name: %s", user.Id, user.Name)
 	return &user, nil
-}
-
-func PanicGenerator(ctx context.Context, name string) (int, error) {
-	span, ctx := apm.StartSpan(ctx, "PanicGenerator", "custom")
-	defer span.End()
-	if strings.IndexFunc(name, func(r rune) bool { return r >= unicode.MaxASCII }) >= 0 {
-		panic("non-ASCII name!")
-	}
-	return 0, nil
 }

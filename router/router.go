@@ -2,16 +2,18 @@ package router
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
+	"strings"
+	"unicode"
 
-	"github.com/nodias/go-ApmCommon/model"
+	"github.com/nodias/go-ApmCommon/logger"
 	"github.com/nodias/go-ApmCommon/response"
 	"github.com/nodias/go-ApmExam3/service"
 
 	"github.com/gorilla/mux"
 	"go.elastic.co/apm"
 	"go.elastic.co/apm/module/apmgorilla"
+	"go.elastic.co/apm/module/apmlogrus"
 )
 
 func NewRouter() *mux.Router {
@@ -21,38 +23,33 @@ func NewRouter() *mux.Router {
 func router() *mux.Router {
 	router := mux.NewRouter()
 	router.HandleFunc("/userInfo/{id}", getUserInfoHandler)
-	router.HandleFunc("/panic/{rune}", panicHandler)
 	router.Use(apmgorilla.Middleware())
 	return router
 }
 
 //getUserInfoHandler is a function, gets the information of one User
 func getUserInfoHandler(w http.ResponseWriter, req *http.Request) {
-	user := &model.User{}
-
-	ctx := req.Context()
-	span, ctx := apm.StartSpan(ctx, "getUserInfoHandler", "custom")
-	defer span.End()
-
+	log := logger.Log.WithFields(apmlogrus.TraceContext(req.Context()))
 	id := mux.Vars(req)["id"]
-
-	user, err := service.GetUserInfo(req.Context(), id)
-	if err != nil {
-		apm.CaptureError(req.Context(), err).Send()
+	log.WithField("id", id).Info("handling hello request")
+	if strings.IndexFunc(id, func(r rune) bool { return r >= unicode.MaxASCII }) >= 0 {
+		panic("non-ASCII id!")
 	}
-	err = json.NewEncoder(w).Encode(response.Response{
-		Id:   response.ID(id),
-		User: user,
-		Err:  response.ResponseErr{err},
+
+	user, rerr := service.GetUserInfo(req.Context(), id)
+	if rerr != nil {
+		log.WithError(rerr.Err).Error("failed to GetUserInfo")
+		apm.CaptureError(req.Context(), rerr.Err).Send()
+		w.WriteHeader(rerr.Code)
+	}
+	err := json.NewEncoder(w).Encode(response.Response{
+		Id:    response.ID(id),
+		User:  user,
+		Error: rerr,
 	})
 	if err != nil {
-		log.Println(err)
+		log.WithError(err).Error("failed to GetUserInfo")
+		http.Error(w, "failed encode to json", 500)
+		return
 	}
-	log.Printf("router.getUserInfoHandler data : %s", user)
-}
-
-func panicHandler(w http.ResponseWriter, req *http.Request) {
-	p_rune := mux.Vars(req)["rune"]
-	log.Printf("panicHandler : %v", p_rune)
-	service.PanicGenerator(req.Context(), p_rune)
 }
