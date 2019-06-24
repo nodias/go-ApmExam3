@@ -1,0 +1,25 @@
+title = "go-ApmExam3"
+
+[writer]
+name = "kss"
+
+[databases]
+    [databases.kss]
+        server = "54.180.2.92"
+        port = "5432"
+        enable = true
+
+[servers]
+    [servers.local1]
+        ip = "127.0.0.1"
+        port = ":7001"
+    [servers.local2]
+        ip = "127.0.0.1"
+        port = ":7002"
+    [servers.local3]
+        ip = "127.0.0.1"
+        port = ":7003"
+
+[logpaths]
+        [logpaths.local]
+            path = "C:/workspace/logs/go-ApmExam3.log"

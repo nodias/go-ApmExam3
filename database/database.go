@@ -10,6 +10,12 @@ import (
 	_ "go.elastic.co/apm/module/apmsql/pq"
 )
 
+var config model.TomlConfig
+
+func init() {
+	config.New("config.toml")
+}
+
 const (
 	DatabaseUser     = "admin"
 	DatabasePassword = "admin"
@@ -24,10 +30,12 @@ type DataAccess interface {
 
 func NewOpenDB() *sql.DB {
 	dbInfo := fmt.Sprintf(
-		"user=%s password=%s dbname=%s sslmode=disable host=54.180.2.92 port=5432",
+		"user=%s password=%s dbname=%s sslmode=disable host=%s port=%s",
 		DatabaseUser,
 		DatabasePassword,
 		DatabaseName,
+		config.Databases["kss"].Server,
+		config.Databases["kss"].Port,
 	)
 	db, err := apmsql.Open("postgres", dbInfo)
 	if err != nil {
