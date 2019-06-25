@@ -19,7 +19,9 @@ name = "kss"
     [servers.local3]
         ip = "127.0.0.1"
         port = ":7003"
-
+    [server.APM_TESTSERVER]
+        ip = "192.168.10.16"
+        port= ":8200"
 [logpaths]
         [logpaths.local]
             path = "C:/workspace/logs/go-ApmExam3.log"

@@ -3,9 +3,9 @@ package database
 import (
 	"database/sql"
 	"fmt"
+	"go-ApmCommon/logger"
+	"go-ApmCommon/model"
 
-	"github.com/nodias/go-ApmCommon/logger"
-	"github.com/nodias/go-ApmCommon/model"
 	"go.elastic.co/apm/module/apmsql"
 	_ "go.elastic.co/apm/module/apmsql/pq"
 )
