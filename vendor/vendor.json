@@ -117,10 +117,40 @@
 			"revisionTime": "2019-05-30T09:32:10Z"
 		},
 		{
+			"checksumSHA1": "HzxFttPpY3cChjc5Jdy5NrAlncA=",
+			"path": "github.com/sirupsen/logrus",
+			"revision": "2a22dbedbad1fd454910cd1f44f210ef90c28464",
+			"revisionTime": "2019-05-18T13:52:02Z"
+		},
+		{
 			"checksumSHA1": "qzA1dLWFE6MPPuC2s38tYp5pSYE=",
 			"path": "github.com/urfave/negroni",
 			"revision": "0ce192d0bd24e9ec58b05bc72b3eac5bcc4f6517",
 			"revisionTime": "2019-04-08T19:14:22Z"
+		},
+		{
+			"checksumSHA1": "EC1gB9xOcnvxuLB9WT2ncVjHam0=",
+			"path": "go-ApmCommon/logger",
+			"revision": "15b60bf355543efde5f5b5aa2f69db7c43cf94ab",
+			"revisionTime": "2019-06-25T08:02:20Z"
+		},
+		{
+			"checksumSHA1": "4ErQHB4/+J+tJ3ShM+kAbvlSp9s=",
+			"path": "go-ApmCommon/middleware",
+			"revision": "15b60bf355543efde5f5b5aa2f69db7c43cf94ab",
+			"revisionTime": "2019-06-25T08:02:20Z"
+		},
+		{
+			"checksumSHA1": "5BNYGqqsESjLRMSy5delAw5/92s=",
+			"path": "go-ApmCommon/model",
+			"revision": "15b60bf355543efde5f5b5aa2f69db7c43cf94ab",
+			"revisionTime": "2019-06-25T08:02:20Z"
+		},
+		{
+			"checksumSHA1": "0R9PnAD5LmqJNmrFASPEMcUJgqk=",
+			"path": "go-ApmCommon/response",
+			"revision": "15b60bf355543efde5f5b5aa2f69db7c43cf94ab",
+			"revisionTime": "2019-06-25T08:02:20Z"
 		},
 		{
 			"checksumSHA1": "gRsHuqWyEwKWERzsquds18+n7Ak=",
