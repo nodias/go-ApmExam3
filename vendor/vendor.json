@@ -6,8 +6,8 @@
 			"checksumSHA1": "rcoUTEGR7KVr963l6P1rlMaYCzA=",
 			"origin": "go-ApmCommon/vendor/github.com/BurntSushi/toml",
 			"path": "github.com/BurntSushi/toml",
-			"revision": "01e73db1f3da13d9a84fb781edd138ebb47b0078",
-			"revisionTime": "2019-06-25T01:44:59Z"
+			"revision": "0543c9304f1dbd2fd83f0aebd0ef1b82631d94e6",
+			"revisionTime": "2019-06-25T04:25:03Z"
 		},
 		{
 			"checksumSHA1": "/Q6YV6eYVMue9P26faFismXwEjM=",
@@ -120,26 +120,26 @@
 		{
 			"checksumSHA1": "EC1gB9xOcnvxuLB9WT2ncVjHam0=",
 			"path": "go-ApmCommon/logger",
-			"revision": "01e73db1f3da13d9a84fb781edd138ebb47b0078",
-			"revisionTime": "2019-06-25T01:44:59Z"
+			"revision": "0543c9304f1dbd2fd83f0aebd0ef1b82631d94e6",
+			"revisionTime": "2019-06-25T04:25:03Z"
 		},
 		{
 			"checksumSHA1": "4ErQHB4/+J+tJ3ShM+kAbvlSp9s=",
 			"path": "go-ApmCommon/middleware",
-			"revision": "01e73db1f3da13d9a84fb781edd138ebb47b0078",
-			"revisionTime": "2019-06-25T01:44:59Z"
+			"revision": "0543c9304f1dbd2fd83f0aebd0ef1b82631d94e6",
+			"revisionTime": "2019-06-25T04:25:03Z"
 		},
 		{
 			"checksumSHA1": "JwCz5TMSKOsm+TnOBAp2hr+ecVY=",
 			"path": "go-ApmCommon/model",
-			"revision": "01e73db1f3da13d9a84fb781edd138ebb47b0078",
-			"revisionTime": "2019-06-25T01:44:59Z"
+			"revision": "0543c9304f1dbd2fd83f0aebd0ef1b82631d94e6",
+			"revisionTime": "2019-06-25T04:25:03Z"
 		},
 		{
 			"checksumSHA1": "0R9PnAD5LmqJNmrFASPEMcUJgqk=",
 			"path": "go-ApmCommon/response",
-			"revision": "01e73db1f3da13d9a84fb781edd138ebb47b0078",
-			"revisionTime": "2019-06-25T01:44:59Z"
+			"revision": "0543c9304f1dbd2fd83f0aebd0ef1b82631d94e6",
+			"revisionTime": "2019-06-25T04:25:03Z"
 		},
 		{
 			"checksumSHA1": "gRsHuqWyEwKWERzsquds18+n7Ak=",
