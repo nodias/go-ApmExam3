@@ -3,13 +3,6 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "rcoUTEGR7KVr963l6P1rlMaYCzA=",
-			"origin": "go-ApmCommon/vendor/github.com/BurntSushi/toml",
-			"path": "github.com/BurntSushi/toml",
-			"revision": "0543c9304f1dbd2fd83f0aebd0ef1b82631d94e6",
-			"revisionTime": "2019-06-25T04:25:03Z"
-		},
-		{
 			"checksumSHA1": "/Q6YV6eYVMue9P26faFismXwEjM=",
 			"path": "github.com/armon/go-radix",
 			"revision": "1a2de0c21c94309923825da3df33a4381872c795",
@@ -124,40 +117,10 @@
 			"revisionTime": "2019-05-30T09:32:10Z"
 		},
 		{
-			"checksumSHA1": "NklIc+ObuqosIKzqKcPtFdCcTao=",
-			"path": "github.com/sirupsen/logrus",
-			"revision": "5521996833c095f5ac75d99687cef8ad344ded12",
-			"revisionTime": "2019-04-23T09:34:05Z"
-		},
-		{
 			"checksumSHA1": "qzA1dLWFE6MPPuC2s38tYp5pSYE=",
 			"path": "github.com/urfave/negroni",
 			"revision": "0ce192d0bd24e9ec58b05bc72b3eac5bcc4f6517",
 			"revisionTime": "2019-04-08T19:14:22Z"
-		},
-		{
-			"checksumSHA1": "EC1gB9xOcnvxuLB9WT2ncVjHam0=",
-			"path": "go-ApmCommon/logger",
-			"revision": "0543c9304f1dbd2fd83f0aebd0ef1b82631d94e6",
-			"revisionTime": "2019-06-25T04:25:03Z"
-		},
-		{
-			"checksumSHA1": "4ErQHB4/+J+tJ3ShM+kAbvlSp9s=",
-			"path": "go-ApmCommon/middleware",
-			"revision": "0543c9304f1dbd2fd83f0aebd0ef1b82631d94e6",
-			"revisionTime": "2019-06-25T04:25:03Z"
-		},
-		{
-			"checksumSHA1": "JwCz5TMSKOsm+TnOBAp2hr+ecVY=",
-			"path": "go-ApmCommon/model",
-			"revision": "0543c9304f1dbd2fd83f0aebd0ef1b82631d94e6",
-			"revisionTime": "2019-06-25T04:25:03Z"
-		},
-		{
-			"checksumSHA1": "0R9PnAD5LmqJNmrFASPEMcUJgqk=",
-			"path": "go-ApmCommon/response",
-			"revision": "0543c9304f1dbd2fd83f0aebd0ef1b82631d94e6",
-			"revisionTime": "2019-06-25T04:25:03Z"
 		},
 		{
 			"checksumSHA1": "gRsHuqWyEwKWERzsquds18+n7Ak=",

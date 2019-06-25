@@ -34,8 +34,8 @@ func NewOpenDB() *sql.DB {
 		DatabaseUser,
 		DatabasePassword,
 		DatabaseName,
-		config.Databases["kss"].Server,
-		config.Databases["kss"].Port,
+		config.Databases["postgres"].Server,
+		config.Databases["postgres"].Port,
 	)
 	db, err := apmsql.Open("postgres", dbInfo)
 	if err != nil {
