@@ -1,0 +1,23 @@
+service = "go-ApmExam3"
+[logpaths]
+    logpath = "C:/workspace/logs/go-ApmExam3.log"
+
+[databases]
+    [databases.postgres]
+        server = "54.180.2.92"
+        port = "5432"
+        enable = true
+[servers]
+    [servers.ApmExam1]
+        ip = "127.0.0.1"
+        port = ":7001"
+    [servers.ApmExam2]
+        ip = "127.0.0.1"
+        port = ":7002"
+    [servers.ApmExam3]
+        ip = "127.0.0.1"
+        port = ":7003"
+    [server.APM]
+        ip = "192.168.10.16"
+        port= ":8200"
+            

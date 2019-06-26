@@ -2,6 +2,7 @@ package model
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/BurntSushi/toml"
 )
@@ -28,8 +29,15 @@ type databases struct {
 	Enable bool
 }
 
-func (t *TomlConfig) New(path string) {
-	if _, err := toml.DecodeFile("config.toml", &t); err != nil {
+// TomlConfig.Load is a function, select config with args
+func (t *TomlConfig) Load() {
+	var phase string
+	if len(os.Args) < 2 {
+		phase = "local"
+	}
+	phase = os.Args[1]
+	fpath := fmt.Sprintf("config/%s/config.toml", phase)
+	if _, err := toml.DecodeFile(fpath, &t); err != nil {
 		fmt.Println(err)
 	}
 }

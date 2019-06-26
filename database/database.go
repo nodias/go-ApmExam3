@@ -13,7 +13,7 @@ import (
 var config model.TomlConfig
 
 func init() {
-	config.New("config.toml")
+	config.Load()
 }
 
 const (

@@ -12,15 +12,9 @@ import (
 
 var config model.TomlConfig
 
-// var phase *string
-
 func init() {
+	config.Load()
 	database.NewOpenDB()
-	config.New("config.toml")
-
-	// phase = flag.String("phase", "local", "select phase, (ex. local, dv) If it is 'local', modify config.toml to fit your own.")
-	// flag.Parse()
-
 	//EXPORT APM EXVIRONMENT
 	os.Setenv("ELASTIC_APM_SERVER_URL", config.ApmServerUrl())
 	os.Setenv("ELASTIC_APM_SERVICE_NAME", config.Service)
