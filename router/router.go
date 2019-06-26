@@ -12,7 +12,6 @@ import (
 	"github.com/gorilla/mux"
 	"go.elastic.co/apm"
 	"go.elastic.co/apm/module/apmgorilla"
-	"go.elastic.co/apm/module/apmlogrus"
 )
 
 func NewRouter() *mux.Router {
@@ -28,7 +27,7 @@ func router() *mux.Router {
 
 //getUserInfoHandler is a function, gets the information of one User
 func getUserInfoHandler(w http.ResponseWriter, req *http.Request) {
-	log := logger.Log.WithFields(apmlogrus.TraceContext(req.Context()))
+	log := logger.NewMyLogger(req)
 	id := mux.Vars(req)["id"]
 	log.WithField("id", id).Info("handling hello request")
 	if strings.IndexFunc(id, func(r rune) bool { return r >= unicode.MaxASCII }) >= 0 {
