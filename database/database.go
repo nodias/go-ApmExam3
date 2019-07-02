@@ -14,7 +14,7 @@ import (
 var config model.TomlConfig
 
 func init() {
-	config.Load()
+	config.Load("config/%s/config.toml")
 }
 
 const (
