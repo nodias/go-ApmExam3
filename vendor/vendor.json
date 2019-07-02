@@ -135,6 +135,30 @@
 			"revisionTime": "2019-04-08T19:14:22Z"
 		},
 		{
+			"checksumSHA1": "LZYiJHMpUfM6R61TPyrtSX0bWsA=",
+			"path": "go-ApmCommon/logger",
+			"revision": "fcd7586346c8d9f7e2d5af7d332f07a561dc4d23",
+			"revisionTime": "2019-07-02T05:25:03Z"
+		},
+		{
+			"checksumSHA1": "yU/QgQlOPaqXjyNx+FaxlfsLQAQ=",
+			"path": "go-ApmCommon/middleware",
+			"revision": "fcd7586346c8d9f7e2d5af7d332f07a561dc4d23",
+			"revisionTime": "2019-07-02T05:25:03Z"
+		},
+		{
+			"checksumSHA1": "Jk80lj72tPerIOn2VyM9n2sCNzw=",
+			"path": "go-ApmCommon/model",
+			"revision": "fcd7586346c8d9f7e2d5af7d332f07a561dc4d23",
+			"revisionTime": "2019-07-02T05:25:03Z"
+		},
+		{
+			"checksumSHA1": "0R9PnAD5LmqJNmrFASPEMcUJgqk=",
+			"path": "go-ApmCommon/response",
+			"revision": "fcd7586346c8d9f7e2d5af7d332f07a561dc4d23",
+			"revisionTime": "2019-07-02T05:25:03Z"
+		},
+		{
 			"checksumSHA1": "ZWRtXG0u+Ub9mCGdsYFp0+63yxk=",
 			"path": "go.elastic.co/apm",
 			"revision": "51ad73b754d23a5c962e62cc96da8db863794553",
