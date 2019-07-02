@@ -17,8 +17,5 @@ service = "go-ApmExam3"
     [servers.ApmExam3]
         ip = "127.0.0.1"
         port = ":7003"
-    [server.APM]
-        ip = "192.168.10.16"
-        port= ":8200"
-        
+  
             

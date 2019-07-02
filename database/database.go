@@ -1,6 +1,7 @@
 package database
 
 import (
+	"context"
 	"database/sql"
 	"fmt"
 	"go-ApmCommon/logger"
@@ -22,7 +23,8 @@ const (
 	DatabaseName     = "postgres"
 )
 
-var log = logger.Log
+var ctx = context.Background()
+var log = logger.NewLogger(ctx)
 
 type DataAccess interface {
 	Get(id string) (*model.User, error)
@@ -39,10 +41,12 @@ func NewOpenDB() *sql.DB {
 	)
 	db, err := apmsql.Open("postgres", dbInfo)
 	if err != nil {
-		log.Fatal("Invalid DB config : ", err)
+		log.Fatal(err)
+		panic("Invalid DB config")
 	}
 	if err = db.Ping(); err != nil {
-		log.Fatal("DB unreachable : ", err)
+		log.Fatal(err)
+		panic("DB unreachable")
 	}
 	log.Debug("connected DB")
 	return db

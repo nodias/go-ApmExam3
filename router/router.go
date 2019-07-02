@@ -27,7 +27,10 @@ func router() *mux.Router {
 
 //getUserInfoHandler is a function, gets the information of one User
 func getUserInfoHandler(w http.ResponseWriter, req *http.Request) {
-	log := logger.NewMyLogger(req)
+	ctx := req.Context()
+	log := logger.NewLogger(ctx)
+	// log := logger.Log.WithFields(apmlogrus.TraceContext(ctx))
+
 	id := mux.Vars(req)["id"]
 	log.WithField("id", id).Info("handling hello request")
 	if strings.IndexFunc(id, func(r rune) bool { return r >= unicode.MaxASCII }) >= 0 {
@@ -37,6 +40,7 @@ func getUserInfoHandler(w http.ResponseWriter, req *http.Request) {
 	user, rerr := service.GetUserInfo(req.Context(), id)
 	if rerr != nil {
 		log.WithError(rerr.Err).Error("failed to GetUserInfo")
+		//apm server에 에러를 업로드 시켜줍니다.
 		apm.CaptureError(req.Context(), rerr.Err).Send()
 		w.WriteHeader(rerr.Code)
 	}

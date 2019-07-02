@@ -5,7 +5,6 @@ import (
 	"go-ApmCommon/model"
 	"go-ApmExam3/database"
 	"go-ApmExam3/router"
-	"os"
 
 	"github.com/urfave/negroni"
 )
@@ -15,9 +14,6 @@ var config model.TomlConfig
 func init() {
 	config.Load()
 	database.NewOpenDB()
-	//EXPORT APM EXVIRONMENT
-	os.Setenv("ELASTIC_APM_SERVER_URL", config.ApmServerUrl())
-	os.Setenv("ELASTIC_APM_SERVICE_NAME", config.Service)
 }
 
 func main() {

@@ -2,15 +2,16 @@ package service
 
 import (
 	"context"
+	"go-ApmCommon/logger"
 	"go-ApmCommon/model"
 	"go-ApmCommon/response"
 	"go-ApmExam3/database"
-	"log"
 
 	"go.elastic.co/apm"
 )
 
 func GetUserInfo(ctx context.Context, id string) (*model.User, *response.ResponseError) {
+	log := logger.NewLogger(ctx)
 	span, ctx := apm.StartSpan(ctx, "GetUserInfo", "custom")
 	defer span.End()
 
@@ -24,9 +25,9 @@ func GetUserInfo(ctx context.Context, id string) (*model.User, *response.Respons
 	row := tx.QueryRowContext(ctx, "SELECT * FROM schema_user.user WHERE id = $1", id)
 	err = row.Scan(&user.Id, &user.Name)
 	if err != nil {
-		log.Printf("database.PostgreAccess.Get - %s", err)
+		log.WithError(err).Debug("There is no corresponding user information.")
 		return nil, response.NewResponseError(err, 500)
 	}
-	log.Printf("database.PostgreAccess.Get - id: %s, name: %s", user.Id, user.Name)
+	log.WithField("user", user).Debug("User information retrieval was successful.")
 	return &user, nil
 }
