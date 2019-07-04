@@ -14,7 +14,7 @@ var config model.TomlConfig
 
 func init() {
 	model.Load("config/%s/config.toml")
-	config.GetConfig()
+	config = *model.GetConfig()
 	logger.Init()
 	database.Init()
 	database.NewOpenDB()

@@ -15,7 +15,7 @@ var config model.TomlConfig
 var log *logrus.Entry
 
 func Init() {
-	config.GetConfig()
+	config = *model.GetConfig()
 	log = logger.NewLogger(context.Background())
 }
 

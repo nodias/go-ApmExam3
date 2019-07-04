@@ -16,7 +16,7 @@ var log *logrus.Logger
 var config model.TomlConfig
 
 func Init() {
-	config.GetConfig()
+	config = *model.GetConfig()
 	log = &logrus.Logger{
 		Out:   os.Stderr,
 		Hooks: make(logrus.LevelHooks),

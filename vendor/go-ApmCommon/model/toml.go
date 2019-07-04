@@ -54,9 +54,9 @@ func (t *TomlConfig) ApmServerUrl() string {
 var insTomlConfig *TomlConfig
 var onceTomlConfig sync.Once
 
-func (t *TomlConfig)GetConfig() {
+func GetConfig() *TomlConfig {
 	onceTomlConfig.Do(func() {
 		insTomlConfig = &config
 	})
-	t=insTomlConfig
+	return insTomlConfig
 }
