@@ -4,17 +4,19 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"github.com/sirupsen/logrus"
 	"go-ApmCommon/logger"
 	"go-ApmCommon/model"
-
 	"go.elastic.co/apm/module/apmsql"
 	_ "go.elastic.co/apm/module/apmsql/pq"
 )
 
 var config model.TomlConfig
+var log *logrus.Entry
 
-func init() {
-	config.Load("config/%s/config.toml")
+func Init() {
+	config.GetConfig()
+	log = logger.NewLogger(context.Background())
 }
 
 const (
@@ -22,9 +24,6 @@ const (
 	DatabasePassword = "admin"
 	DatabaseName     = "postgres"
 )
-
-var ctx = context.Background()
-var log = logger.NewLogger(ctx)
 
 type DataAccess interface {
 	Get(id string) (*model.User, error)

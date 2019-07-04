@@ -29,7 +29,6 @@ func router() *mux.Router {
 func getUserInfoHandler(w http.ResponseWriter, req *http.Request) {
 	ctx := req.Context()
 	log := logger.NewLogger(ctx)
-	// log := logger.Log.WithFields(apmlogrus.TraceContext(ctx))
 
 	id := mux.Vars(req)["id"]
 	log.WithField("id", id).Info("handling hello request")

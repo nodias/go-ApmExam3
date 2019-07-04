@@ -2,6 +2,10 @@ service = "go-ApmExam3"
 [logpaths]
     logpath = "/home/logs/go-ApmExam3.log"
 
+[logconfig]
+    logpath = "C:/workspace/logs/go-ApmExam3.log"
+    loglevel = "debug"
+
 [databases]
     [databases.postgres]
         server = "54.180.2.92"

@@ -10,6 +10,7 @@ import (
 	"go.elastic.co/apm"
 )
 
+
 func GetUserInfo(ctx context.Context, id string) (*model.User, *response.ResponseError) {
 	log := logger.NewLogger(ctx)
 	span, ctx := apm.StartSpan(ctx, "GetUserInfo", "custom")
