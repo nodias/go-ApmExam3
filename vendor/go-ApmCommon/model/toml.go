@@ -9,14 +9,9 @@ import (
 
 type TomlConfig struct {
 	Service   string
-	Logpaths  logpaths
 	Logconfig logconfig
 	Databases map[string]databases
 	Servers   map[string]servers
-}
-
-type logpaths struct {
-	Logpath string
 }
 
 type logconfig struct {

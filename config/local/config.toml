@@ -1,10 +1,8 @@
 service = "go-ApmExam3"
-[logpaths]
-    logpath = "C:/workspace/logs/go-ApmExam3.log"
 
 [logconfig]
     logpath = "C:/workspace/logs/go-ApmExam3.log"
-    loglevel = 4
+    loglevel = 5
 
 [databases]
     [databases.postgres]
