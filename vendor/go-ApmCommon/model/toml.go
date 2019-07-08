@@ -30,8 +30,7 @@ type databases struct {
 	Enable bool
 }
 
-
-
+// Parsing toml
 var config TomlConfig
 
 func  Load (cp string) {
@@ -46,6 +45,7 @@ func (t *TomlConfig) ApmServerUrl() string {
 	return fmt.Sprintf("%s%s", t.Servers["APM"].IP, t.Servers["APM"].PORT)
 }
 
+// Singletone
 var insTomlConfig *TomlConfig
 var onceTomlConfig sync.Once
 

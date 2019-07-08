@@ -4,22 +4,20 @@ import (
 	"context"
 	"go-ApmCommon/logger"
 	"go-ApmCommon/model"
-	"go-ApmCommon/response"
 	"go-ApmExam3/database"
 
 	"go.elastic.co/apm"
 )
 
-
-func GetUserInfo(ctx context.Context, id string) (*model.User, *response.ResponseError) {
-	log := logger.NewLogger(ctx)
+func GetUserInfo(ctx context.Context, id string) (*model.User, *model.ResponseError) {
+	log := logger.New(ctx)
 	span, ctx := apm.StartSpan(ctx, "GetUserInfo", "custom")
 	defer span.End()
 
 	db := database.NewOpenDB()
 	tx, err := db.BeginTx(ctx, nil)
 	if err != nil {
-		return nil, response.NewResponseError(err, 500)
+		return nil, model.NewResponseError(err, 500)
 	}
 	user := model.User{}
 	defer db.Close()
@@ -27,7 +25,7 @@ func GetUserInfo(ctx context.Context, id string) (*model.User, *response.Respons
 	err = row.Scan(&user.Id, &user.Name)
 	if err != nil {
 		log.WithError(err).Debug("There is no corresponding user information.")
-		return nil, response.NewResponseError(err, 500)
+		return nil, model.NewResponseError(err, 500)
 	}
 	log.WithField("user", user).Debug("User information retrieval was successful.")
 	return &user, nil

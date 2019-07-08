@@ -1,38 +1,25 @@
-package response
+package model
 
 import (
 	"encoding/json"
 	"errors"
 	"fmt"
-
-	"go-ApmCommon/model"
 )
 
+// Errors
 var ErrUserNotExist = errors.New("user not exist")
 
+// Status Code
 const (
 	HttpStatusAccepted            = 202
-	HttpStatusInternalSErverError = 500
+	HttpStatusInternalServerError = 500
 )
 
 type ID string
 
-type ResponseError struct {
-	Err  error
-	Code int
-}
-
-func (r ResponseError) Error() string {
-	return r.Err.Error()
-}
-
-func NewResponseError(e error, c int) *ResponseError {
-	return &ResponseError{e, c}
-}
-
 type Response struct {
 	Id    ID
-	User  *model.User
+	User  *User
 	Error *ResponseError
 }
 
@@ -64,4 +51,17 @@ func (r *ResponseError) UnmarshalJSON(b []byte) error {
 		return errors.New("unexpected response error")
 	}
 	return nil
+}
+
+type ResponseError struct {
+	Err  error
+	Code int
+}
+
+func (r ResponseError) Error() string {
+	return r.Err.Error()
+}
+
+func NewResponseError(e error, c int) *ResponseError {
+	return &ResponseError{e, c}
 }

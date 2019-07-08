@@ -3,7 +3,7 @@ package router
 import (
 	"encoding/json"
 	"go-ApmCommon/logger"
-	"go-ApmCommon/response"
+	"go-ApmCommon/model"
 	"go-ApmExam3/service"
 	"net/http"
 	"strings"
@@ -28,7 +28,7 @@ func router() *mux.Router {
 //getUserInfoHandler is a function, gets the information of one User
 func getUserInfoHandler(w http.ResponseWriter, req *http.Request) {
 	ctx := req.Context()
-	log := logger.NewLogger(ctx)
+	log := logger.New(ctx)
 
 	id := mux.Vars(req)["id"]
 	log.WithField("id", id).Info("handling hello request")
@@ -43,8 +43,8 @@ func getUserInfoHandler(w http.ResponseWriter, req *http.Request) {
 		apm.CaptureError(req.Context(), rerr.Err).Send()
 		w.WriteHeader(rerr.Code)
 	}
-	err := json.NewEncoder(w).Encode(response.Response{
-		Id:    response.ID(id),
+	err := json.NewEncoder(w).Encode(model.Response{
+		Id:    model.ID(id),
 		User:  user,
 		Error: rerr,
 	})

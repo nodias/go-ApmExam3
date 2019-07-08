@@ -16,6 +16,7 @@ func (ca cmdargs) String() string {
 	return fmt.Sprintf("phase : %s", ca.Phase)
 }
 
+// init is a function to parse flag
 func init() {
 	p := flag.String("phase", "local", "input phase e.g)local, dv")
 	flag.Parse()
@@ -24,7 +25,7 @@ func init() {
 	}
 }
 
-//singleton
+// Singleton
 var insCmdargs *cmdargs
 var onceCmdargs sync.Once
 

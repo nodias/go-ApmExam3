@@ -26,7 +26,7 @@ func Init() {
 				logrus.FieldKeyTime:  "@timestamp",
 				logrus.FieldKeyLevel: "log.level",
 				logrus.FieldKeyMsg:   "message",
-				logrus.FieldKeyFunc:  "agro", //non-ECS
+				logrus.FieldKeyFunc:  "function.name", //non-ECS
 			},
 		},
 	}
@@ -34,16 +34,17 @@ func Init() {
 	log.AddHook(&apmlogrus.Hook{})
 }
 
+//sigltone
 var instance *logrus.Logger
 var once sync.Once
 
-func GetLogger() *logrus.Logger {
+func Get() *logrus.Logger {
 	once.Do(func() {
 		instance = log
 	})
 	return instance
 }
 
-func NewLogger(ctx context.Context) *logrus.Entry {
-	return GetLogger().WithFields(apmlogrus.TraceContext(ctx))
+func New(ctx context.Context) *logrus.Entry {
+	return Get().WithFields(apmlogrus.TraceContext(ctx))
 }

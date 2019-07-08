@@ -16,7 +16,7 @@ var log *logrus.Entry
 
 func Init() {
 	config = *model.GetConfig()
-	log = logger.NewLogger(context.Background())
+	log = logger.New(context.Background())
 }
 
 const (

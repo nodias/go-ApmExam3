@@ -135,28 +135,22 @@
 			"revisionTime": "2019-04-08T19:14:22Z"
 		},
 		{
-			"checksumSHA1": "uiN0/eCrlcAWs3bk85LIlOwh/aY=",
+			"checksumSHA1": "/5bQdgP44FmOCqlENWb7qbTrSvk=",
 			"path": "go-ApmCommon/logger",
-			"revision": "72672e97dca8e1afe89ff91bf12daef96091078a",
-			"revisionTime": "2019-07-04T04:45:42Z"
+			"revision": "11686996bd695f626f01388e3ffda92798688abc",
+			"revisionTime": "2019-07-05T04:10:38Z"
 		},
 		{
-			"checksumSHA1": "yVjG1hlQjYF2uD3MQAyaxT6zSV0=",
+			"checksumSHA1": "nSo10SwIOxzQ+0VRKxZ3Ug52Wjk=",
 			"path": "go-ApmCommon/middleware",
-			"revision": "72672e97dca8e1afe89ff91bf12daef96091078a",
-			"revisionTime": "2019-07-04T04:45:42Z"
+			"revision": "11686996bd695f626f01388e3ffda92798688abc",
+			"revisionTime": "2019-07-05T04:10:38Z"
 		},
 		{
-			"checksumSHA1": "xts2kNwB6KRJPQ/QfJLFvws97cY=",
+			"checksumSHA1": "4sNjYTHXOmlpgIapDM2xSM8WvV0=",
 			"path": "go-ApmCommon/model",
-			"revision": "72672e97dca8e1afe89ff91bf12daef96091078a",
-			"revisionTime": "2019-07-04T04:45:42Z"
-		},
-		{
-			"checksumSHA1": "0R9PnAD5LmqJNmrFASPEMcUJgqk=",
-			"path": "go-ApmCommon/response",
-			"revision": "72672e97dca8e1afe89ff91bf12daef96091078a",
-			"revisionTime": "2019-07-04T04:45:42Z"
+			"revision": "11686996bd695f626f01388e3ffda92798688abc",
+			"revisionTime": "2019-07-05T04:10:38Z"
 		},
 		{
 			"checksumSHA1": "ZWRtXG0u+Ub9mCGdsYFp0+63yxk=",
