@@ -2,8 +2,8 @@ package router
 
 import (
 	"encoding/json"
-	"go-ApmCommon/logger"
-	"go-ApmCommon/model"
+	"go-ApmCommon/models"
+	"go-ApmCommon/shared/logger"
 	"go-ApmExam3/service"
 	"net/http"
 	"strings"
@@ -43,8 +43,8 @@ func getUserInfoHandler(w http.ResponseWriter, req *http.Request) {
 		apm.CaptureError(req.Context(), rerr.Err).Send()
 		w.WriteHeader(rerr.Code)
 	}
-	err := json.NewEncoder(w).Encode(model.Response{
-		Id:    model.ID(id),
+	err := json.NewEncoder(w).Encode(models.Response{
+		Id:    models.ID(id),
 		User:  user,
 		Error: rerr,
 	})

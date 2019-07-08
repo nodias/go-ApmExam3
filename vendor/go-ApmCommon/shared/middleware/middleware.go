@@ -1,11 +1,10 @@
 package middleware
 
 import (
+	"go-ApmCommon/shared/logger"
 	"io"
 	"net/http"
 	"os"
-
-	"go-ApmCommon/logger"
 )
 
 func Logging(path string) func(res http.ResponseWriter, req *http.Request, next http.HandlerFunc) {

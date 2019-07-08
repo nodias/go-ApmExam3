@@ -1,7 +1,8 @@
-package model
+package models
 
 import (
 	"fmt"
+	"go-ApmCommon/internal"
 	"sync"
 
 	"github.com/BurntSushi/toml"
@@ -34,7 +35,7 @@ type databases struct {
 var config TomlConfig
 
 func  Load (cp string) {
-	cmdargs := GetCmdargs()
+	cmdargs := internal.GetCmdargs()
 	fpath := fmt.Sprintf(cp, cmdargs.Phase)
 	if _, err := toml.DecodeFile(fpath, &config); err != nil {
 		fmt.Println(err)

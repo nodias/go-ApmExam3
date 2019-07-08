@@ -1,23 +1,23 @@
 package main
 
 import (
-	"go-ApmCommon/logger"
-	"go-ApmCommon/middleware"
-	"go-ApmCommon/model"
-	"go-ApmExam3/database"
+	"go-ApmCommon/models"
+	"go-ApmCommon/shared/logger"
+	"go-ApmCommon/shared/middleware"
+	"go-ApmCommon/shared/repository"
 	"go-ApmExam3/router"
 
 	"github.com/urfave/negroni"
 )
 
-var config model.TomlConfig
+var config models.TomlConfig
 
 func init() {
-	model.Load("config/%s/config.toml")
-	config = *model.GetConfig()
+	models.Load("config/%s/config.toml")
+	config = *models.GetConfig()
 	logger.Init()
-	database.Init()
-	database.NewOpenDB()
+	repository.Init()
+	repository.NewOpenDB()
 }
 
 func main() {

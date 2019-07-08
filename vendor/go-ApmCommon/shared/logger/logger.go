@@ -2,8 +2,7 @@ package logger
 
 import (
 	"context"
-	"go-ApmCommon/model"
-
+	"go-ApmCommon/models"
 	"os"
 	"sync"
 
@@ -13,10 +12,10 @@ import (
 )
 
 var log *logrus.Logger
-var config model.TomlConfig
+var config models.TomlConfig
 
 func Init() {
-	config = *model.GetConfig()
+	config = *models.GetConfig()
 	log = &logrus.Logger{
 		Out:   os.Stderr,
 		Hooks: make(logrus.LevelHooks),

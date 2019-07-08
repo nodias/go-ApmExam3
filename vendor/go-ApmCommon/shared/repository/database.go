@@ -1,21 +1,21 @@
-package database
+package repository
 
 import (
 	"context"
 	"database/sql"
 	"fmt"
 	"github.com/sirupsen/logrus"
-	"go-ApmCommon/logger"
-	"go-ApmCommon/model"
+	"go-ApmCommon/models"
+	"go-ApmCommon/shared/logger"
 	"go.elastic.co/apm/module/apmsql"
 	_ "go.elastic.co/apm/module/apmsql/pq"
 )
 
-var config model.TomlConfig
+var config models.TomlConfig
 var log *logrus.Entry
 
 func Init() {
-	config = *model.GetConfig()
+	config = *models.GetConfig()
 	log = logger.New(context.Background())
 }
 
@@ -26,7 +26,7 @@ const (
 )
 
 type DataAccess interface {
-	Get(id string) (*model.User, error)
+	Get(id string) (*models.User, error)
 }
 
 func NewOpenDB() *sql.DB {

@@ -1,4 +1,4 @@
-package model
+package models
 
 import (
 	"encoding/json"
@@ -23,6 +23,8 @@ type Response struct {
 	Error *ResponseError
 }
 
+//
+//
 func (r ResponseError) MarshalJSON() ([]byte, error) {
 	if r.Err == nil {
 		return []byte("null"), nil
@@ -53,6 +55,8 @@ func (r *ResponseError) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
+//
+//
 type ResponseError struct {
 	Err  error
 	Code int
