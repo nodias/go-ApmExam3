@@ -25,6 +25,7 @@ const (
 	DatabaseName     = "postgres"
 )
 
+//TODO Use DataAccess interface
 type DataAccess interface {
 	Get(id string) (*models.User, error)
 }

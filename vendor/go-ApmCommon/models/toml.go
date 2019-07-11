@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+	"github.com/sirupsen/logrus"
 	"go-ApmCommon/internal"
 	"sync"
 
@@ -17,7 +18,19 @@ type TomlConfig struct {
 
 type logconfig struct {
 	Logpath  string
-	Loglevel int
+	Loglevel logrus.Level
+}
+
+func (l *logconfig) UnmarshalTOML(p interface{}) error {
+	data, _ := p.(map[string]interface{})
+	l.Logpath, _ = data["logpath"].(string)
+	//Parsing constant values
+	var err error
+	l.Loglevel, err = logrus.ParseLevel(data["loglevel"].(string))
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 type servers struct {
@@ -34,7 +47,7 @@ type databases struct {
 // Parsing toml
 var config TomlConfig
 
-func  Load (cp string) {
+func Load(cp string) {
 	cmdargs := internal.GetCmdargs()
 	fpath := fmt.Sprintf(cp, cmdargs.Phase)
 	if _, err := toml.DecodeFile(fpath, &config); err != nil {

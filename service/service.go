@@ -3,12 +3,13 @@ package service
 import (
 	"context"
 	"go-ApmCommon/models"
-	"go-ApmCommon/shared/repository"
 	"go-ApmCommon/shared/logger"
+	"go-ApmCommon/shared/repository"
 
 	"go.elastic.co/apm"
 )
 
+//GetUserInfo is a function that gets specific user information about id.
 func GetUserInfo(ctx context.Context, id string) (*models.User, *models.ResponseError) {
 	log := logger.New(ctx)
 	span, ctx := apm.StartSpan(ctx, "GetUserInfo", "custom")
@@ -24,8 +25,10 @@ func GetUserInfo(ctx context.Context, id string) (*models.User, *models.Response
 	row := tx.QueryRowContext(ctx, "SELECT * FROM schema_user.user WHERE id = $1", id)
 	err = row.Scan(&user.Id, &user.Name)
 	if err != nil {
-		log.WithError(err).Debug("There is no corresponding user information.")
-		return nil, models.NewResponseError(err, 500)
+		apm.CaptureError(ctx, err).Send()
+		rerr := models.NewResponseError(err, 500)
+		log.WithError(rerr).Error("There is no corresponding user information.")
+		return nil, rerr
 	}
 	log.WithField("user", user).Debug("User information retrieval was successful.")
 	return &user, nil

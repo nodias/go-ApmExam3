@@ -3,6 +3,7 @@ package logger
 import (
 	"context"
 	"go-ApmCommon/models"
+	"io"
 	"os"
 	"sync"
 
@@ -15,6 +16,7 @@ var log *logrus.Logger
 var config models.TomlConfig
 
 func Init() {
+	//TODO log formatter out & refactoring
 	config = *models.GetConfig()
 	log = &logrus.Logger{
 		Out:   os.Stderr,
@@ -29,8 +31,16 @@ func Init() {
 			},
 		},
 	}
+	//file output
+	fpLog, err := os.OpenFile(config.Logconfig.Logpath, os.O_CREATE|os.O_WRONLY|os.O_APPEND,0666)
+	if err!= nil {
+		panic(err)
+	}
+	multiWriter := io.MultiWriter(fpLog, os.Stdout)
+	log.SetOutput(multiWriter)
 	apm.DefaultTracer.SetLogger(log)
 	log.AddHook(&apmlogrus.Hook{})
+	log.Debug("logger init - success")
 }
 
 //sigltone

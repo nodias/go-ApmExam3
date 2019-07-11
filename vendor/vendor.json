@@ -4,9 +4,10 @@
 	"package": [
 		{
 			"checksumSHA1": "rcoUTEGR7KVr963l6P1rlMaYCzA=",
+			"origin": "go-ApmCommon/vendor/github.com/BurntSushi/toml",
 			"path": "github.com/BurntSushi/toml",
-			"revision": "3012a1dbe2e4bd1391d42b32f0577cb7bbc7f005",
-			"revisionTime": "2018-08-15T10:47:33Z"
+			"revision": "96223d78a7f437a301ea50ee8fa67b14b2a6b9e7",
+			"revisionTime": "2019-07-08T07:57:22Z"
 		},
 		{
 			"checksumSHA1": "/Q6YV6eYVMue9P26faFismXwEjM=",
@@ -76,27 +77,31 @@
 		},
 		{
 			"checksumSHA1": "Z7rkupTQRAZzzTCqDLiSbNR70to=",
+			"origin": "go-ApmCommon/vendor/github.com/konsorten/go-windows-terminal-sequences",
 			"path": "github.com/konsorten/go-windows-terminal-sequences",
-			"revision": "f55edac94c9bbba5d6182a4be46d86a2c9b5b50e",
-			"revisionTime": "2019-02-26T22:47:05Z"
+			"revision": "96223d78a7f437a301ea50ee8fa67b14b2a6b9e7",
+			"revisionTime": "2019-07-08T07:57:22Z"
 		},
 		{
 			"checksumSHA1": "usdc5x/cnYgzmukXgSFzw7wf9Vk=",
+			"origin": "go-ApmCommon/vendor/github.com/lib/pq",
 			"path": "github.com/lib/pq",
-			"revision": "2ff3cb3adc01768e0a552b3a02575a6df38a9bea",
-			"revisionTime": "2019-05-07T19:18:18Z"
+			"revision": "96223d78a7f437a301ea50ee8fa67b14b2a6b9e7",
+			"revisionTime": "2019-07-08T07:57:22Z"
 		},
 		{
-			"checksumSHA1": "QPjV8nrnzjkHGgLYwlqYCOSbwH4=",
+			"checksumSHA1": "GX2hcQP8YqrXH+laJJIxUFsqoxU=",
+			"origin": "go-ApmCommon/vendor/github.com/lib/pq/oid",
 			"path": "github.com/lib/pq/oid",
-			"revision": "2ff3cb3adc01768e0a552b3a02575a6df38a9bea",
-			"revisionTime": "2019-05-07T19:18:18Z"
+			"revision": "96223d78a7f437a301ea50ee8fa67b14b2a6b9e7",
+			"revisionTime": "2019-07-08T07:57:22Z"
 		},
 		{
 			"checksumSHA1": "O3X0xRekyBbu23qIQdhv1jKEpf0=",
+			"origin": "go-ApmCommon/vendor/github.com/lib/pq/scram",
 			"path": "github.com/lib/pq/scram",
-			"revision": "2ff3cb3adc01768e0a552b3a02575a6df38a9bea",
-			"revisionTime": "2019-05-07T19:18:18Z"
+			"revision": "96223d78a7f437a301ea50ee8fa67b14b2a6b9e7",
+			"revisionTime": "2019-07-08T07:57:22Z"
 		},
 		{
 			"checksumSHA1": "CUU7ZZtxuc1mpbM8XKrSTNiy/yM=",
@@ -124,9 +129,10 @@
 		},
 		{
 			"checksumSHA1": "HzxFttPpY3cChjc5Jdy5NrAlncA=",
+			"origin": "go-ApmCommon/vendor/github.com/sirupsen/logrus",
 			"path": "github.com/sirupsen/logrus",
-			"revision": "2a22dbedbad1fd454910cd1f44f210ef90c28464",
-			"revisionTime": "2019-05-18T13:52:02Z"
+			"revision": "96223d78a7f437a301ea50ee8fa67b14b2a6b9e7",
+			"revisionTime": "2019-07-08T07:57:22Z"
 		},
 		{
 			"checksumSHA1": "qzA1dLWFE6MPPuC2s38tYp5pSYE=",
@@ -135,34 +141,28 @@
 			"revisionTime": "2019-04-08T19:14:22Z"
 		},
 		{
-			"checksumSHA1": "HQZHErXfzaEHL848K5cSD2GO74w=",
+			"checksumSHA1": "VZK8T9CUZ56eQYulScp+uzeZPno=",
 			"path": "go-ApmCommon/internal",
-			"revision": "cc255460d4aaa975fb69265ace4e498e7c9639af",
-			"revisionTime": "2019-07-08T04:26:15Z"
+			"revision": "96223d78a7f437a301ea50ee8fa67b14b2a6b9e7",
+			"revisionTime": "2019-07-08T07:57:22Z"
 		},
 		{
-			"checksumSHA1": "P8YB5Z5E2ibt2/YssFwrhPv+r88=",
+			"checksumSHA1": "vajlCAxeqwWe7gHLawayfMyfgwE=",
 			"path": "go-ApmCommon/models",
-			"revision": "cc255460d4aaa975fb69265ace4e498e7c9639af",
-			"revisionTime": "2019-07-08T04:26:15Z"
+			"revision": "96223d78a7f437a301ea50ee8fa67b14b2a6b9e7",
+			"revisionTime": "2019-07-08T07:57:22Z"
 		},
 		{
-			"checksumSHA1": "cF1ENxrk/yO8jgXGedmW507L68s=",
+			"checksumSHA1": "/TjYdb+57/atPY/67m9xZ6ySLHI=",
 			"path": "go-ApmCommon/shared/logger",
-			"revision": "cc255460d4aaa975fb69265ace4e498e7c9639af",
-			"revisionTime": "2019-07-08T04:26:15Z"
+			"revision": "96223d78a7f437a301ea50ee8fa67b14b2a6b9e7",
+			"revisionTime": "2019-07-08T07:57:22Z"
 		},
 		{
-			"checksumSHA1": "OaDhq2wpFd50XSi+J+KQzI9oNQQ=",
-			"path": "go-ApmCommon/shared/middleware",
-			"revision": "cc255460d4aaa975fb69265ace4e498e7c9639af",
-			"revisionTime": "2019-07-08T04:26:15Z"
-		},
-		{
-			"checksumSHA1": "keQ8H0mUiTr/HwGrEAYuqvnEPuE=",
+			"checksumSHA1": "bOQykgfA6vdnFq342MXUDEsrNw4=",
 			"path": "go-ApmCommon/shared/repository",
-			"revision": "cc255460d4aaa975fb69265ace4e498e7c9639af",
-			"revisionTime": "2019-07-08T04:26:15Z"
+			"revision": "96223d78a7f437a301ea50ee8fa67b14b2a6b9e7",
+			"revisionTime": "2019-07-08T07:57:22Z"
 		},
 		{
 			"checksumSHA1": "ZWRtXG0u+Ub9mCGdsYFp0+63yxk=",
@@ -238,15 +238,17 @@
 		},
 		{
 			"checksumSHA1": "j4+gXBLdzUl0j9O8RdFq7BQvZJ8=",
+			"origin": "go-ApmCommon/vendor/go.elastic.co/apm/internal/sqlscanner",
 			"path": "go.elastic.co/apm/internal/sqlscanner",
-			"revision": "51ad73b754d23a5c962e62cc96da8db863794553",
-			"revisionTime": "2019-06-20T14:17:27Z"
+			"revision": "96223d78a7f437a301ea50ee8fa67b14b2a6b9e7",
+			"revisionTime": "2019-07-08T07:57:22Z"
 		},
 		{
 			"checksumSHA1": "OMIS3crJTg8gITF46XiUEnLx3CE=",
+			"origin": "go-ApmCommon/vendor/go.elastic.co/apm/internal/sqlutil",
 			"path": "go.elastic.co/apm/internal/sqlutil",
-			"revision": "51ad73b754d23a5c962e62cc96da8db863794553",
-			"revisionTime": "2019-06-20T14:17:27Z"
+			"revision": "96223d78a7f437a301ea50ee8fa67b14b2a6b9e7",
+			"revisionTime": "2019-07-08T07:57:22Z"
 		},
 		{
 			"checksumSHA1": "WK6C1wiNFq5tf3mKJTETx8fTt/k=",
@@ -274,21 +276,24 @@
 		},
 		{
 			"checksumSHA1": "i5XXbhOfoUFuXdJc1/ic0dM//c0=",
+			"origin": "go-ApmCommon/vendor/go.elastic.co/apm/module/apmlogrus",
 			"path": "go.elastic.co/apm/module/apmlogrus",
-			"revision": "51ad73b754d23a5c962e62cc96da8db863794553",
-			"revisionTime": "2019-06-20T14:17:27Z"
+			"revision": "96223d78a7f437a301ea50ee8fa67b14b2a6b9e7",
+			"revisionTime": "2019-07-08T07:57:22Z"
 		},
 		{
 			"checksumSHA1": "e8uq246FqPiJXM+v5Q6ANJfhQto=",
+			"origin": "go-ApmCommon/vendor/go.elastic.co/apm/module/apmsql",
 			"path": "go.elastic.co/apm/module/apmsql",
-			"revision": "51ad73b754d23a5c962e62cc96da8db863794553",
-			"revisionTime": "2019-06-20T14:17:27Z"
+			"revision": "96223d78a7f437a301ea50ee8fa67b14b2a6b9e7",
+			"revisionTime": "2019-07-08T07:57:22Z"
 		},
 		{
 			"checksumSHA1": "YaG/XynjF10+28/ph0VIprc0/SU=",
+			"origin": "go-ApmCommon/vendor/go.elastic.co/apm/module/apmsql/pq",
 			"path": "go.elastic.co/apm/module/apmsql/pq",
-			"revision": "51ad73b754d23a5c962e62cc96da8db863794553",
-			"revisionTime": "2019-06-20T14:17:27Z"
+			"revision": "96223d78a7f437a301ea50ee8fa67b14b2a6b9e7",
+			"revisionTime": "2019-07-08T07:57:22Z"
 		},
 		{
 			"checksumSHA1": "XStLWBjLppsOSKzE4+6Yc3Hj7qM=",

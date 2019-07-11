@@ -10,21 +10,27 @@ import (
 var ErrUserNotExist = errors.New("user not exist")
 
 // Status Code
-const (
-	HttpStatusAccepted            = 202
-	HttpStatusInternalServerError = 500
+//const (
+//	HttpStatusAccepted            = 202
+//	HttpStatusInternalServerError = 500
+//)
+
+//TODO use defined error
+var (
+	Accepted            = ResponseError{nil, 202}
+	InternalServerError = ResponseError{ErrUserNotExist, 500}
 )
-
-type ID string
-
-type Response struct {
-	Id    ID
-	User  *User
-	Error *ResponseError
+//
+//
+type ResponseError struct {
+	Err  error
+	Code int
 }
 
-//
-//
+func NewResponseError(e error, c int) *ResponseError {
+		return &ResponseError{e, c}
+}
+
 func (r ResponseError) MarshalJSON() ([]byte, error) {
 	if r.Err == nil {
 		return []byte("null"), nil
@@ -55,17 +61,17 @@ func (r *ResponseError) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-//
-//
-type ResponseError struct {
-	Err  error
-	Code int
-}
 
 func (r ResponseError) Error() string {
-	return r.Err.Error()
+		return fmt.Sprintf(`{"message":"%s", "code":"%d"}`, r.Err, r.Code)
 }
 
-func NewResponseError(e error, c int) *ResponseError {
-	return &ResponseError{e, c}
+//
+//
+type ID string
+
+type Response struct {
+	Id    ID
+	User  *User
+	Error *ResponseError
 }
